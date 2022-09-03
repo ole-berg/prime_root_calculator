@@ -1,6 +1,4 @@
 from math import sqrt
-import os
-import time
 
 
 def write_into_list(x):
@@ -39,10 +37,10 @@ def better_phi(n):
 
 
 def is_prime(x):
-    if f'{num},\n' in open('primes.txt').read():
+    if f'{x},\n' in open('primes.txt').read():
         return True
-    for i in range(2, int(x / 2) + 1):
-        if (num % i) == 0:
+    for i in range(2, int(sqrt(x)) + 1):
+        if (x % i) == 0:
             # if factor is found, set flag to True
             return False
     write_into_list(num)

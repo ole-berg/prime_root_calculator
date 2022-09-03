@@ -1,17 +1,9 @@
 from math import gcd
 
-import inline as inline
-import matplotlib
-from numpy import double
-
-import primerootcalc
-import matplotlib.pyplot as plt
-
 
 def primRoots(modulo):
     coprime_set = {num for num in range(1, modulo) if gcd(num, modulo) == 1}
-    return [g for g in range(1, modulo) if coprime_set == {pow(g, powers, modulo)
-                                                           for powers in range(1, modulo)}]
+    return [g for g in range(1, modulo) if coprime_set == {pow(g, powers, modulo) for powers in range(1, modulo)}]
 
 
 def is_prime(x):
@@ -22,6 +14,11 @@ def is_prime(x):
     return True
 
 
-for n in range(3, 500):
-    if is_prime(n):
-        print(f'Generatoren der Zahl {n}: {primRoots(n)}')
+def printRoots(upperBoundary):
+    for n in range(3, upperBoundary):
+        if is_prime(n):
+            roots = primRoots(n)
+            print(f'Die {len(roots)} Generatoren der Primzahl {n}: {roots}')
+
+
+printRoots(200)
