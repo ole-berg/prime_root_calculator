@@ -51,7 +51,7 @@ def is_prime(x):
 
 sum = 0.0
 counter = 0
-for num in range(3, 10000):
+for num in range(3, 100):
     if is_prime(num):
         phi = better_phi(num - 1)
         print(f'Primzahl: {num}, Generatoren: {phi}')
